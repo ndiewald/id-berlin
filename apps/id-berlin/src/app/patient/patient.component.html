@@ -1,0 +1,17 @@
+<div *ngIf="patient$ | async as patient">
+  <div >ID: {{ patient.id }}</div>
+  <div>
+    name:
+    <span *ngFor="let name of patient.name">
+      <span>{{ name.family }}</span>,
+      <span *ngFor="let given of name.given">
+        {{ given }}
+      </span>
+    </span>
+  </div>
+  <div>gender: {{ patient.gender }}</div>
+  <div *ngIf="patient.text">Text:
+  <div [innerHTML]="patient.text.div"></div>
+  </div>
+</div>
+<div *ngIf="error">{{ error }}</div>
